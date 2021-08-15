@@ -28,35 +28,47 @@ def respond():
     # Return the response in json format
     return jsonify(response)
 
+@app.route('/post/', methods=['POST'])
+def post_something():
+    param = request.form.get('name')
+    print(param)
+    # You can add the test cases you made in the previous function, but in our case here you are just testing the POST functionality
+    if param:
+        return jsonify({
+            "Message": f"Welcome {name} to our awesome platform!!",
+            # Add this option to distinct the POST request
+            "METHOD" : "POST"
+        })
+    else:
+        return jsonify({
+            "ERROR": "no name found, please send a name."
+        })
 
+# A welcome message to test our server
 @app.route('/')
 def index():
     return "<h1>Welcome to our server !!</h1>"
 
-
-def hello_world():
-   return('Hello World')
-
-def search_google(query_term):
-
-    params = {
-        "api_key": "*",
-        "engine": "google",
-        "q": "query_term",
-        "location": "Austin, Texas, United States",
-        "google_domain": "google.com",
-        "gl": "us",
-        "hl": "en"
-    }
-
-    search = GoogleSearch(params)
-    results = search.get_dict()
-    return results
+# def search_google(query_term):
+#
+#     params = {
+#         "api_key": "*",
+#         "engine": "google",
+#         "q": "query_term",
+#         "location": "Austin, Texas, United States",
+#         "google_domain": "google.com",
+#         "gl": "us",
+#         "hl": "en"
+#     }
+#
+#     search = GoogleSearch(params)
+#     results = search.get_dict()
+#     return results
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     app.run()
     # app.run(debug = True)
-    print("What should I search for?")
+    # print("What should I search for?")
     # search_term = input("Search Term: ")
     # print(search_google(search_term))
