@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="home_bg">
+<h1><span style="font-family: Snell Roundhand,cursive; font-size: xxx-large;">Welcome to Uncorked!</span></h1>
+    <p><b><span style="font-size: x-large">Love wine? Love the Pacific Northwest? Uncorked is here to help connect you with your favorite PNW wineries
+    and discover your next favorite local wine! Click on the instructions button below if you would like to learn
+        how to use Uncorked. Cheers!</span></b></p>
+    <br>
+    <br>
+    <div>
+        <button type="button" id="instructions" name="instructions_button">Instructions</button>
+    </div>
+    <br>
+    <br>
+<!--    <p>Please select a state:</p>********Use this for code smells example********-->
+    <ul>
+        {% for state in states %}
+            <li>{{ state }} Wineries:</li>
+                <ul>
+                    {% for winery in states[state].winery_dict %}
+                        <a href="/{{ winery.name }}"><li>{{ winery.name }}</li></a>
+                    {% endfor %}
+                </ul>
+                <br>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

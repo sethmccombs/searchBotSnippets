@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <body>
+  <style>
+nav {
+    background-color: pink;
+    color: ghostwhite;
+}
+
+body {
+    background-color: #96365D;
+    color: white;
+}
+
+h1 {
+    font-size: xxx-large;
+    text-align: center;
+    padding-right: 300px;
+    padding-left: 300px;
+}
+
+h3, p {
+    text-align: center;
+    padding-right: 300px;
+    padding-left: 300px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+ul {
+    font-size: x-large;
+}
+
+a {
+    color: pink;
+}
+
+.home_bg {
+    background: url("../static/corks.jpg"), fixed center center;
+    height: 3000px;
+    width: 1775px;
+}
+
+</style>
+    <nav>
+        <a href="/">
+        <img src="../static/logo3.png" alt="Logo" width="50" height="70" />
+            <span style="font-family: Snell Roundhand,cursive; font-size: xx-large; vertical-align: center">Uncorked</span>
+        </a>
+    </nav>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

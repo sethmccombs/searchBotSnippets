@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1><span style="font-family: Snell Roundhand,cursive; ">{{ template_name }}</span></h1>
+
+    <br>
+    <br>
+
+    <h3>About {{ template_name }}:</h3>
+        {% for state in states %}
+            {% for winery in states[state].winery_dict %}
+                {% if winery.name == template_name %}
+                    <p>{{ winery.about }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    <img src="../static/Shop.png" alt="Shop results" width="1000" height="400" class="center"/>
+{% endblock %}
